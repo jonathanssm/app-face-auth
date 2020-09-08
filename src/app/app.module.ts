@@ -14,6 +14,7 @@ import { HomeComponent } from './paginas/home/home.component';
 import { NavBarComponent } from './compartilhado/componentes/nav-bar/nav-bar.component';
 import { CadastroComponent } from './paginas/cadastro/cadastro.component';
 import { AutenticarComponent } from './paginas/autenticar/autenticar.component';
+import { ContatosComponent } from './paginas/contatos/contatos.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AutenticarComponent } from './paginas/autenticar/autenticar.component';
     HomeComponent,
     NavBarComponent,
     CadastroComponent,
-    AutenticarComponent
+    AutenticarComponent,
+    ContatosComponent
   ],
   imports: [
     BrowserAnimationsModule,
