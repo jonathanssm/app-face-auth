@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-// Terceiros
-import { NgxSpinnerService } from 'ngx-spinner';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,8 +9,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class HomeComponent implements OnInit {
 
   constructor(
-    private router: Router,
-    private spinnerServico: NgxSpinnerService
+    private router: Router
   ) { }
 
   ngOnInit(): void {
