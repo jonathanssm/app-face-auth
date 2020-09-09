@@ -1,0 +1,15 @@
+<div class="modal-header">
+  <h4 class="modal-title">Mensagem</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="fecharModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div *ngFor="let mensagem of listaMsg">
+    <i class="fa float-left mr-2 {{classIconeCor}}" aria-hidden="true"></i>
+    <div [innerHtml]="mensagem"></div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-lg btn-dark" (click)="fecharModal()">Fechar</button>
+</div>
