@@ -1,0 +1,7 @@
+<button [type]="typeBotao" class="btn btn-lg {{classComplementar}}" [class.btn-dark]="liberar" (click)="click($event)"
+  [class.btn-secondary]="bloquear" [disabled]="bloquear">
+  <ng-container *ngIf="exibirIcone()">
+    <i class="fa {{iconeFa}}"></i>
+  </ng-container>
+  {{ nomeBotao }}
+</button>
