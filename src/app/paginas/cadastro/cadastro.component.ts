@@ -49,6 +49,8 @@ export class CadastroComponent implements OnInit {
     const foto: Array<File> = this.form.controls.foto.value == null ? [] : [this.form.controls.foto.value];
     this.spinnerServico.show();
     this.tratarResposta(foto);
+    alert(this.form.get('cpf').value);
+    alert(this.form.get('nome').value);
   }
 
   private tratarResposta(foto: Array<File>): void {
