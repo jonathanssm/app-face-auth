@@ -1,0 +1,33 @@
+.aumentarAlturaBarra {
+  height: 1.3rem !important;
+}
+
+.custom-file-label {
+  height: calc(2.640625rem + 2px) !important;
+  font-size: 1.09375rem;
+}
+
+.custom-file-label::after {
+  height: calc(2.640625rem) !important;
+}
+
+.cursorAdicionar {
+  cursor: cell;
+}
+
+.progress-xs {
+  height: 4px;
+}
+
+.progress-sm {
+  height: 8px;
+}
+
+// White progress bar
+.progress-white {
+  background-color: rgba(255, 255, 255, .2) !important;
+
+  .progress-bar {
+    background-color: black;
+  }
+}

@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ModalModule } from 'ngx-bootstrap/modal';
 
 // Terceiros
 import { NgxSpinnerModule } from 'ngx-spinner';
@@ -12,6 +11,8 @@ import { ModalServico } from 'src/app/compartilhado/components/modal/modal.servi
 
 // Ngx
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 // Routing
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +28,7 @@ import { BotaoBloquearLiberarComponent } from './compartilhado/components/botao-
 import { ConfirmacaoComponent } from './compartilhado/components/modal/confirmacao/confirmacao.component';
 import { MensagemComponent } from './compartilhado/components/modal/mensagem/mensagem.component';
 import { SpinnerComponent } from './compartilhado/components/spinner/spinner.component';
+import { UploadArquivoComponent } from './compartilhado/components/upload/upload-arquivo/upload-arquivo.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { SpinnerComponent } from './compartilhado/components/spinner/spinner.com
     BotaoBloquearLiberarComponent,
     ConfirmacaoComponent,
     MensagemComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    UploadArquivoComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -49,6 +52,7 @@ import { SpinnerComponent } from './compartilhado/components/spinner/spinner.com
     NgxSpinnerModule,
     BsDropdownModule.forRoot(),
     ModalModule.forRoot(),
+    ProgressbarModule.forRoot()
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [ModalServico],
