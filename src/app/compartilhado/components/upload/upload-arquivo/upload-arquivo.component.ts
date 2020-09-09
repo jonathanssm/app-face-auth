@@ -21,7 +21,7 @@ export class UploadArquivoComponent implements OnInit {
   eventoProgressoUpload: EventEmitter<Array<any>>;
 
   @Input()
-  textoInicial: string = 'Escolha o arquivo';
+  textoInicial: string = 'Selecione o arquivo';
 
   @Input()
   tamanhoMaxArquivoBytes?: number = 1048576; // 1MB
@@ -61,12 +61,12 @@ export class UploadArquivoComponent implements OnInit {
       this.alterandoArquivoSelecionado({ length: 0, item: (index: number): any => { } });
     } else if (event.type === HttpEventType.Response) {
       this.inputUpload.nativeElement.value = '';
-      this.textoInicial = 'Escolha o arquivo';
+      this.textoInicial = 'Selecione o arquivo';
       this.uploadArquivoFinalizado.emit(event.body);
     }
   }
 
-  alterandoArquivoSelecionado(listaArquivoInput: FileList) {
+  alterandoArquivoSelecionado(listaArquivoInput: FileList): void {
     this.reiniciarUpload();
     this.escolherArquivo.emit(this.validarListaArquivo(listaArquivoInput));
   }
@@ -84,7 +84,7 @@ export class UploadArquivoComponent implements OnInit {
     }
 
     if (listaNomeArquivoInvalidos.length === listaArquivo.length) {
-      this.textoInicial = 'Escolha o arquivo';
+      this.textoInicial = 'Selecione o arquivo';
       this.inputUpload.nativeElement.value = '';
     }
 
@@ -108,7 +108,7 @@ export class UploadArquivoComponent implements OnInit {
 
   private configurarNomesArquivoSelecionado(listaArquivo: Array<File>): void {
     if (listaArquivo.length === 0) {
-      this.textoInicial = 'Escolha o arquivo';
+      this.textoInicial = 'Selecione o arquivo';
     } else {
       this.textoInicial = listaArquivo.map(f => f.name).join(', ');
     }

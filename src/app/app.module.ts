@@ -13,6 +13,7 @@ import { ModalServico } from 'src/app/compartilhado/components/modal/modal.servi
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
 
 // Routing
 import { AppRoutingModule } from './app-routing.module';
@@ -29,6 +30,8 @@ import { ConfirmacaoComponent } from './compartilhado/components/modal/confirmac
 import { MensagemComponent } from './compartilhado/components/modal/mensagem/mensagem.component';
 import { SpinnerComponent } from './compartilhado/components/spinner/spinner.component';
 import { UploadArquivoComponent } from './compartilhado/components/upload/upload-arquivo/upload-arquivo.component';
+
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = undefined;
 
 @NgModule({
   declarations: [
@@ -52,7 +55,8 @@ import { UploadArquivoComponent } from './compartilhado/components/upload/upload
     NgxSpinnerModule,
     BsDropdownModule.forRoot(),
     ModalModule.forRoot(),
-    ProgressbarModule.forRoot()
+    ProgressbarModule.forRoot(),
+    NgxMaskModule.forRoot()
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [ModalServico],

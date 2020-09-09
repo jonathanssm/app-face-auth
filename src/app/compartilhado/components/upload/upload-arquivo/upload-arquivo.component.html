@@ -7,7 +7,7 @@
     </div>
   </div>
   <div class="form-group col-sm-6 align-self-center">
-    <progressbar [max]="tamanhoArquivo" [value]="bytesEnviados" type="info" [striped]="true" [animate]="true"
+    <progressbar [max]="tamanhoArquivo" [value]="bytesEnviados" type="danger" [striped]="true" [animate]="true"
       class="aumentarAlturaBarra">
       <span class="text-dark font-weight-bold" [class.pl-sm-4]="isZeroProgresso()">{{percentualAtual}}</span>
     </progressbar>
