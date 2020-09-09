@@ -1,6 +1,10 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { HttpEvent, HttpEventType } from '@angular/common/http';
+
+// Constante
+import { Constante } from 'src/app/Constante';
 
 // Terceiros
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -16,14 +20,17 @@ import { ModalServico } from 'src/app/compartilhado/components/modal';
 export class CadastroComponent implements OnInit {
 
   public readonly TAMANHO_ARQUIVO_64MB: number = 67108864;
+  public readonly MASCARA_NOME: string = Constante.MASCARA_NOME;
 
+  public customPatterns = { L: { pattern: new RegExp(Constante.REGEX_VALIDACAO_NOME) } };
   public form: FormGroup;
   public eventoUploadProgresso: EventEmitter<Array<any>> = new EventEmitter();
 
   constructor(
     private formBuilder: FormBuilder,
     private spinnerServico: NgxSpinnerService,
-    private modalServico: ModalServico
+    private modalServico: ModalServico,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -49,8 +56,8 @@ export class CadastroComponent implements OnInit {
 
     setTimeout(() => {
       this.spinnerServico.hide();
-      this.modalServico.exibirMensagem('Pessoa cadastrada com sucesso');
-      this.form.reset();
+      this.modalServico.exibirMensagem('Pessoa cadastrada com sucesso.');
+      this.router.navigate(['home']);
     }, 3000);
   }
 
@@ -68,6 +75,8 @@ export class CadastroComponent implements OnInit {
 
   private iniciarForm(): void {
     this.form = this.formBuilder.group({
+      cpf: this.formBuilder.control('', [Validators.required, Validators.pattern(Constante.REGEX_VALIDACAO_CPF_SEM_MASCARA)]),
+      nome: this.formBuilder.control('', [Validators.required, Validators.pattern(Constante.REGEX_VALIDACAO_NOME)]),
       foto: this.formBuilder.control(null, Validators.required)
     });
   }
