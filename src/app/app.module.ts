@@ -15,6 +15,8 @@ import { NavBarComponent } from './compartilhado/componentes/nav-bar/nav-bar.com
 import { CadastroComponent } from './paginas/cadastro/cadastro.component';
 import { AutenticarComponent } from './paginas/autenticar/autenticar.component';
 import { ContatosComponent } from './paginas/contatos/contatos.component';
+import { BotaoBloquearLiberarComponent } from './compartilhado/componentes/botao-bloquear-liberar/botao-bloquear-liberar.component';
+import { InputComponent } from './compartilhado/componentes/input/input.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ContatosComponent } from './paginas/contatos/contatos.component';
     NavBarComponent,
     CadastroComponent,
     AutenticarComponent,
-    ContatosComponent
+    ContatosComponent,
+    BotaoBloquearLiberarComponent,
+    InputComponent
   ],
   imports: [
     BrowserAnimationsModule,
