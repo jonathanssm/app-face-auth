@@ -89,7 +89,7 @@ export class UploadArquivoComponent implements OnInit {
     }
 
     if (listaNomeArquivoInvalidos.length > 0) {
-      this.modalServico.exibirMensagem(`Os seguintes arquivos serão desconsiderados, pois excederam o tamanho máximo permitido de ${this.tamanhoMaxArquivoBytes} bytes ou estão vazios: ${listaNomeArquivoInvalidos}`);
+      this.modalServico.exibirAtencao(`Os seguintes arquivos serão desconsiderados, pois excederam o tamanho máximo permitido de ${this.tamanhoMaxArquivoBytes} bytes ou estão vazios: ${listaNomeArquivoInvalidos}`);
     }
 
     this.configurarNomesArquivoSelecionado(listaArquivoValido);
