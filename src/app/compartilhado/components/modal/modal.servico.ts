@@ -21,7 +21,23 @@ export class ModalServico {
   }
 
   exibirMensagem(mensagem: string): void {
-    this.exibir('', 'fa-check', mensagem, MensagemComponent);
+    this.exibir('modal-dark', '', mensagem, MensagemComponent);
+  }
+
+  exibirSucesso(mensagem: string): void {
+    this.exibir('modal-dark', 'fa-check text-dark', mensagem, MensagemComponent);
+  }
+
+  exibirAtencao(mensagem: string): void {
+    this.exibir('modal-dark', 'fa-exclamation-triangle text-dark', mensagem, MensagemComponent);
+  }
+
+  exibirErro(mensagem: string): void {
+    this.exibir('modal-danger', 'fa-times text-danger', mensagem, MensagemComponent);
+  }
+
+  exibirInfo(mensagem: string): void {
+    this.exibir('modal-info', 'fa fa-info-circle text-info', mensagem, MensagemComponent);
   }
 
   /*
@@ -29,7 +45,7 @@ export class ModalServico {
   * Ver o comentario do metodo exibirConfirmacao para mais detalhes
   */
   exibirConfirmacaoGrande(mensagem: string, dados: any, funcaoConfirmado: Function, funcaoNaoConfirmado?: Function): void {
-    this.configurarModalConfirmacao('modal-warning', mensagem, dados, funcaoConfirmado, funcaoNaoConfirmado);
+    this.configurarModalConfirmacao('modal-dark', mensagem, dados, funcaoConfirmado, funcaoNaoConfirmado);
   }
 
   private exibir(classModal: string, classIconeCor: string, mensagem: string, modalComponent: any): BsModalRef {
@@ -41,7 +57,7 @@ export class ModalServico {
   }
 
   private configurarModalConfirmacao(classModal: string, mensagem: string, dados: any, funcaoConfirmado: Function, funcaoNaoConfirmado?: Function): void {
-    let modal = this.exibir(classModal, 'fa-exclamation-triangle text-warning', mensagem, ConfirmacaoComponent);
+    let modal = this.exibir(classModal, 'fa-exclamation-triangle text-dark', mensagem, ConfirmacaoComponent);
     modal.content.dados = dados;
     modal.content.eventoConfirmado.subscribe(funcaoConfirmado);
     if (funcaoNaoConfirmado) {

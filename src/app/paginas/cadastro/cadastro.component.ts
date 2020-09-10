@@ -20,9 +20,7 @@ import { ModalServico } from 'src/app/compartilhado/components/modal';
 export class CadastroComponent implements OnInit {
 
   public readonly TAMANHO_ARQUIVO_64MB: number = 67108864;
-  public readonly MASCARA_NOME: string = Constante.MASCARA_NOME;
 
-  public customPatterns = { L: { pattern: new RegExp(Constante.REGEX_VALIDACAO_NOME) } };
   public form: FormGroup;
   public eventoUploadProgresso: EventEmitter<Array<any>> = new EventEmitter();
 
@@ -37,8 +35,16 @@ export class CadastroComponent implements OnInit {
     this.iniciarForm();
   }
 
+  selecionarImagem(foto: FileList): void {
+    if (foto == null) {
+      this.form.controls.foto.setValue(null);
+    } else {
+      this.form.controls.foto.setValue(foto);
+    }
+  }
+
   selecionarArquivo(foto: Array<File>): void {
-    if (foto.length == 0) {
+    if (foto.length === 0) {
       this.form.controls.foto.setValue(null);
     } else {
       this.form.controls.foto.setValue(foto[0]);
@@ -49,18 +55,18 @@ export class CadastroComponent implements OnInit {
     const foto: Array<File> = this.form.controls.foto.value == null ? [] : [this.form.controls.foto.value];
     this.spinnerServico.show();
     this.tratarResposta(foto);
-    alert(this.form.get('cpf').value);
-    alert(this.form.get('nome').value);
   }
 
   private tratarResposta(foto: Array<File>): void {
+    const nomePessoa = this.form.get('nome').value;
+
     this.eventoUploadProgresso.emit([foto]);
 
     setTimeout(() => {
       this.spinnerServico.hide();
-      this.modalServico.exibirMensagem('Pessoa cadastrada com sucesso.');
+      this.modalServico.exibirSucesso(`${nomePessoa} você foi cadastrado(a) com sucesso.`);
       this.router.navigate(['home']);
-    }, 3000);
+    }, 4000);
   }
 
   /*private tratarResposta(evento: HttpEvent<any>, foto: Array<File>): void {

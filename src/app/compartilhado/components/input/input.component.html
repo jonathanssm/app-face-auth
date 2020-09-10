@@ -1,0 +1,16 @@
+<div class="form-group">
+  <div [class.is-valid]="campoValido()" [class.is-invalid]="campoInvalido()">
+    <input id="idInput{{complementoId}}" autocomplete="off" [type]="tipo"
+      class="form-control form-control-lg {{classComplementar}}" placeholder="{{textoPlaceHolder}}"
+      [class.is-valid]="campoValido()" [class.is-invalid]="campoInvalido()" #input [readonly]="somenteLeitura"
+      [mask]="mascara" [dropSpecialCharacters]="removerMascara" [ngModel]="valorFinalInput"
+      (ngModelChange)="alteracaoNgModel($event)" [maxLength]="tamanhoMax" [patterns]="padraoCustomizado" foco
+      [autofocus]="foco">
+  </div>
+  <span class="invalid-feedback">
+    <i class="fa fa-times" aria-hidden="true"> {{mensagemErro}}</i>
+  </span>
+  <span class="valid-feedback">
+    <i class="fa fa-check-square-o" aria-hidden="true"> Ok</i>
+  </span>
+</div>
