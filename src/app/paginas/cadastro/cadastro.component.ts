@@ -60,7 +60,7 @@ export class CadastroComponent implements OnInit {
       this.spinnerServico.hide();
       this.modalServico.exibirMensagem('Pessoa cadastrada com sucesso.');
       this.router.navigate(['home']);
-    }, 3000);
+    }, 6000);
   }
 
   /*private tratarResposta(evento: HttpEvent<any>, foto: Array<File>): void {
