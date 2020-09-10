@@ -53,8 +53,10 @@ export class CadastroComponent implements OnInit {
 
   cadastrarPessoa(): void {
     const foto: Array<File> = this.form.controls.foto.value == null ? [] : [this.form.controls.foto.value];
-    this.spinnerServico.show();
-    this.tratarResposta(foto);
+    this.modalServico.exibirConfirmacaoGrande('Realmente deseja finalizar o cadastro?', null, () => {
+      this.spinnerServico.show();
+      this.tratarResposta(foto);
+    });
   }
 
   private tratarResposta(foto: Array<File>): void {

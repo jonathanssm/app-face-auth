@@ -7,15 +7,17 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class MensagemComponent {
 
-  listaMsg: string[] = [];
+  public listaMsg: string[] = [];
 
-  classIconeCor: string;
+  public classIconeCor: string;
+  public tipoBotao: string;
 
   constructor(public bsModalRef: BsModalRef) { }
 
   fecharModal(): any {
     this.listaMsg = [];
     this.classIconeCor = '';
+    this.tipoBotao = '';
     this.bsModalRef.hide();
   }
 }

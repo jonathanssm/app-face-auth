@@ -45,10 +45,10 @@ export class UploadImagemComponent {
     } else {
       if (this.isNaoImagem(arquivo)) {
         this.inputUpload.nativeElement.value = '';
-        this.modalServico.exibirMensagem('Só é permitido selecionar imagem que tem uma das seguintes extensões: jpg, jpeg e png.');
+        this.modalServico.exibirInfo('Só é permitido selecionar imagem que tem uma das seguintes extensões: jpg, jpeg e png.');
         this.limparCampos();
       } else if (arquivo.size > this.tamanhoMaxArquivoBytes) {
-        this.modalServico.exibirMensagem(`A imagem excedeu excedeu o tamanho máximo permitido de ${this.tamanhoMaxArquivoBytes} bytes.`);
+        this.modalServico.exibirAtencao(`A imagem excedeu o tamanho máximo permitido de ${this.tamanhoMaxArquivoBytes} bytes.`);
         this.limparCampos();
       } else {
         let reader = new FileReader();
@@ -59,7 +59,7 @@ export class UploadImagemComponent {
           this.escolherArquivo.emit(this.imgBase64);
         };
         reader.onerror = (error) => {
-          this.modalServico.exibirMensagem('Ocorreu um erro ao selecionar a imagem: ' + arquivo.name + '.');
+          this.modalServico.exibirErro('Ocorreu um erro ao selecionar a imagem: ' + arquivo.name + '.');
           console.log('Error: ', error);
         };
       }
