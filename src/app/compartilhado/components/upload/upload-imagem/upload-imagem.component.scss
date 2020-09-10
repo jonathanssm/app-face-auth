@@ -1,0 +1,21 @@
+.imagemMiniatura {
+  width: 300;
+  height: 200px;
+}
+
+.custom-file-label {
+  height: calc(2.640625rem + 2px) !important;
+  font-size: 1.09375rem;
+}
+
+.custom-file-label::after {
+  height: calc(2.640625rem) !important;
+}
+
+.cursorAdicionar {
+  cursor: cell;
+}
+
+.altura-botao {
+  height: 44px;
+}

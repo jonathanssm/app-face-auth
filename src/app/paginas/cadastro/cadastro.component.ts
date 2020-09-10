@@ -35,8 +35,16 @@ export class CadastroComponent implements OnInit {
     this.iniciarForm();
   }
 
+  selecionarImagem(foto: FileList): void {
+    if (foto == null) {
+      this.form.controls.foto.setValue(null);
+    } else {
+      this.form.controls.foto.setValue(foto);
+    }
+  }
+
   selecionarArquivo(foto: Array<File>): void {
-    if (foto.length == 0) {
+    if (foto.length === 0) {
       this.form.controls.foto.setValue(null);
     } else {
       this.form.controls.foto.setValue(foto[0]);
@@ -47,8 +55,6 @@ export class CadastroComponent implements OnInit {
     const foto: Array<File> = this.form.controls.foto.value == null ? [] : [this.form.controls.foto.value];
     this.spinnerServico.show();
     this.tratarResposta(foto);
-    alert(this.form.get('cpf').value);
-    alert(this.form.get('nome').value);
   }
 
   private tratarResposta(foto: Array<File>): void {
@@ -58,9 +64,9 @@ export class CadastroComponent implements OnInit {
 
     setTimeout(() => {
       this.spinnerServico.hide();
-      this.modalServico.exibirMensagem(`${nomePessoa} você foi cadastrado(a) com sucesso.`);
-      //this.router.navigate(['home']);
-    }, 6000);
+      this.modalServico.exibirSucesso(`${nomePessoa} você foi cadastrado(a) com sucesso.`);
+      this.router.navigate(['home']);
+    }, 4000);
   }
 
   /*private tratarResposta(evento: HttpEvent<any>, foto: Array<File>): void {

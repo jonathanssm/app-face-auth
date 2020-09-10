@@ -32,6 +32,7 @@ import { MensagemComponent } from './compartilhado/components/modal/mensagem/men
 import { SpinnerComponent } from './compartilhado/components/spinner/spinner.component';
 import { UploadArquivoComponent } from './compartilhado/components/upload/upload-arquivo/upload-arquivo.component';
 import { InputComponent } from './compartilhado/components/input/input.component';
+import { UploadImagemComponent } from './compartilhado/components/upload/upload-imagem/upload-imagem.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = undefined;
 
@@ -48,7 +49,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = undefined;
     MensagemComponent,
     SpinnerComponent,
     UploadArquivoComponent,
-    InputComponent
+    InputComponent,
+    UploadImagemComponent
   ],
   imports: [
     BrowserAnimationsModule,
