@@ -7,12 +7,12 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class ConfirmacaoComponent {
 
-  listaMsg: string[] = [];
-  classIconeCor: string;
-  dados: any;
+  public listaMsg: string[] = [];
+  public classIconeCor: string;
+  public dados: any;
 
-  eventoConfirmado = new EventEmitter<string>();
-  eventoNaoConfirmado = new EventEmitter<string>();
+  public eventoConfirmado = new EventEmitter<string>();
+  public eventoNaoConfirmado = new EventEmitter<string>();
 
   constructor(public bsModalRef: BsModalRef) { }
 
