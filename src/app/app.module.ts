@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 // Terceiros
 import { NgxSpinnerModule } from 'ngx-spinner';
@@ -30,6 +31,7 @@ import { ConfirmacaoComponent } from './compartilhado/components/modal/confirmac
 import { MensagemComponent } from './compartilhado/components/modal/mensagem/mensagem.component';
 import { SpinnerComponent } from './compartilhado/components/spinner/spinner.component';
 import { UploadArquivoComponent } from './compartilhado/components/upload/upload-arquivo/upload-arquivo.component';
+import { InputComponent } from './compartilhado/components/input/input.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = undefined;
 
@@ -45,13 +47,16 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = undefined;
     ConfirmacaoComponent,
     MensagemComponent,
     SpinnerComponent,
-    UploadArquivoComponent
+    UploadArquivoComponent,
+    InputComponent
   ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
+    CommonModule,
     ReactiveFormsModule,
+    FormsModule,
     NgxSpinnerModule,
     BsDropdownModule.forRoot(),
     ModalModule.forRoot(),

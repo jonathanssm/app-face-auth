@@ -20,9 +20,7 @@ import { ModalServico } from 'src/app/compartilhado/components/modal';
 export class CadastroComponent implements OnInit {
 
   public readonly TAMANHO_ARQUIVO_64MB: number = 67108864;
-  public readonly MASCARA_NOME: string = Constante.MASCARA_NOME;
 
-  public customPatterns = { L: { pattern: new RegExp(Constante.REGEX_VALIDACAO_NOME) } };
   public form: FormGroup;
   public eventoUploadProgresso: EventEmitter<Array<any>> = new EventEmitter();
 

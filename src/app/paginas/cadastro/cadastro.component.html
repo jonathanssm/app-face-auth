@@ -1,18 +1,15 @@
 <div class="animate__animated animate__fadeIn">
-  <form class="form-group" [formGroup]="form">
+  <form [formGroup]="form">
     <div class="row mb-3 mt-5 mr-1 ml-1">
       <div class="mb-2 col-12 col-sm-6 col-md-6 col-lg-3 col-xl-4">
-        <label for="cpf">CPF</label>
-        <input formControlName="cpf" class="form-control" type="text" name="CPF" id="cpf" minlength="1"
-          mask="000.000.000-00">
-        <small *ngIf="form.controls.cpf.invalid" id="erroCpf" class="form-text msg-erro">Campo obrigatório e
-          deve conter 11 dígitos de 0-9.</small>
+        <app-input formControlName="cpf" [control]="form.controls['cpf']" textoPlaceHolder="CPF"
+          [somenteLeitura]="false" mensagemErro="Campo obrigatório e deve conter 11 dígitos de 0-9." classComplementar="" mascara="000.000.000-00"
+          [removerMascara]="true"></app-input>
       </div>
       <div class="col-12 col-sm-6 col-md-6 col-lg-3 col-xl-4">
-        <label for="nome">Nome</label>
-        <input formControlName="nome" class="form-control" type="text" name="Nome" id="nome" minlength="1"
-          [mask]="MASCARA_NOME" [patterns]="customPatterns">
-        <small *ngIf="form.controls.nome.invalid" id="erroNome" class="form-text msg-erro">Campo obrigatório.</small>
+        <app-input formControlName="nome" [control]="form.controls['nome']" textoPlaceHolder="Nome"
+          [somenteLeitura]="false" mensagemErro="Campo obrigatório." classComplementar="" mascara="L*" [removerMascara]="false">
+        </app-input>
       </div>
     </div>
     <div class="row mr-1 ml-1">
