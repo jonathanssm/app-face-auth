@@ -52,12 +52,14 @@ export class CadastroComponent implements OnInit {
   }
 
   private tratarResposta(foto: Array<File>): void {
+    const nomePessoa = this.form.get('nome').value;
+
     this.eventoUploadProgresso.emit([foto]);
 
     setTimeout(() => {
       this.spinnerServico.hide();
-      this.modalServico.exibirMensagem('Pessoa cadastrada com sucesso.');
-      this.router.navigate(['home']);
+      this.modalServico.exibirMensagem(`${nomePessoa} você foi cadastrado(a) com sucesso.`);
+      //this.router.navigate(['home']);
     }, 6000);
   }
 

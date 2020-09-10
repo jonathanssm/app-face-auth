@@ -35,9 +35,9 @@ export class UploadArquivoComponent implements OnInit {
   @ViewChild('inputUpload')
   inputUpload: any;
 
-  tamanhoArquivo: number;
-  bytesEnviados: number;
-  percentualAtual: string;
+  public tamanhoArquivo: number;
+  public bytesEnviados: number;
+  public percentualAtual: string;
 
   constructor(private modalServico: ModalServico) { }
 
@@ -97,7 +97,7 @@ export class UploadArquivoComponent implements OnInit {
   }
 
   private reiniciarUpload(): void {
-    this.tamanhoArquivo = 1;
+    this.tamanhoArquivo = 0;
     this.bytesEnviados = 0;
     this.percentualAtual = '0%';
   }
