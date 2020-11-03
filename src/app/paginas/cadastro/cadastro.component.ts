@@ -11,6 +11,11 @@ import { NgxSpinnerService } from 'ngx-spinner';
 
 // Servicos
 import { ModalServico } from 'src/app/compartilhado/components/modal';
+import { FaceAuthService } from 'src/app/compartilhado/services/face-auth.service';
+
+// Modelos
+import { Cadastro } from 'src/app/compartilhado/models/face_auth.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-cadastro',
@@ -24,10 +29,13 @@ export class CadastroComponent implements OnInit {
   public form: FormGroup;
   public eventoUploadProgresso: EventEmitter<Array<any>> = new EventEmitter();
 
+  private dadosUsuario: Cadastro;
+
   constructor(
     private formBuilder: FormBuilder,
     private spinnerServico: NgxSpinnerService,
     private modalServico: ModalServico,
+    private faceAuthService: FaceAuthService,
     private router: Router
   ) { }
 
@@ -52,36 +60,34 @@ export class CadastroComponent implements OnInit {
   }
 
   cadastrarPessoa(): void {
-    const foto: Array<File> = this.form.controls.foto.value == null ? [] : [this.form.controls.foto.value];
+    const arquivo = this.form.controls.foto.value == null ? [] : [this.form.controls.foto.value];
+    this.dadosUsuario = this.carregarDadosUsuario();
     this.modalServico.exibirConfirmacaoGrande('Realmente deseja finalizar o cadastro?', null, () => {
+      let apiCadastro: Observable<HttpEvent<string>> = this.faceAuthService.getTest(this.dadosUsuario, arquivo);
+
       this.spinnerServico.show();
-      this.tratarResposta(foto);
+      apiCadastro.subscribe(resp => this.tratarResposta(resp, arquivo));
     });
   }
 
-  private tratarResposta(foto: Array<File>): void {
-    const nomePessoa = this.form.get('nome').value;
-
-    this.eventoUploadProgresso.emit([foto]);
-
-    setTimeout(() => {
-      this.spinnerServico.hide();
-      this.modalServico.exibirSucesso(`${nomePessoa} você foi cadastrado(a) com sucesso.`);
-      this.router.navigate(['home']);
-    }, 4000);
-  }
-
-  /*private tratarResposta(evento: HttpEvent<any>, foto: Array<File>): void {
+  private tratarResposta(evento: HttpEvent<any>, foto: Array<File>): void {
     this.eventoUploadProgresso.emit([evento, foto]);
 
     if (evento.type == HttpEventType.Response) {
       if (evento.body != null) {
         this.spinnerServico.hide();
-        this.modalServico.exibirMensagem('Pessoa cadastrada com sucesso.');
-        this.form.reset();
+        this.modalServico.exibirSucesso(evento.body);
+        this.router.navigate(['home']);
       }
     }
-  }*/
+  }
+
+  private carregarDadosUsuario(): Cadastro {
+    return {
+      cpf: this.form.get('cpf').value,
+      nome: this.form.get('nome').value
+    };
+  }
 
   private iniciarForm(): void {
     this.form = this.formBuilder.group({

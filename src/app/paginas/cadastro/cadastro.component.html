@@ -20,15 +20,9 @@
         </app-upload-arquivo>
       </div>
     </div>
-    <div class="row mt-1 mr-1 ml-1 mt-3">
-      <div class="col-12 col-lg-5 col-xl-4">
-        <app-upload-imagem (escolherArquivo)="selecionarImagem($event)">
-        </app-upload-imagem>
-      </div>
-    </div>
     <div class="row mt-1 mb-3 mr-1 ml-1 justify-content-start">
       <div class="col-auto">
-        <app-botao-bloquear-liberar typeBotao="submit" nomeBotao="Adicionar" [liberar]="form.valid"
+        <app-botao-bloquear-liberar typeBotao="submit" nomeBotao="Cadastrar" [liberar]="form.valid"
           [bloquear]="form.invalid" (eventoClick)="cadastrarPessoa()">
         </app-botao-bloquear-liberar>
       </div>
