@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpEvent } from '@angular/common/http';
-import { from, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 // Utils
 import { AppHttpUtil } from 'src/app/compartilhado/utils/app-http-util';
@@ -15,14 +15,15 @@ import { TipoResposta } from '../enum/tipo_resposta.enum';
 
 export class FaceAuthService {
 
-  private readonly URL_API: string = 'http://127.0.0.1:5000';
+  private readonly URL_LOCAL_API: string = 'http://127.0.0.1:5000';
+  private readonly URL_WEB_API: string = 'https://back-end-face-auth.herokuapp.com';
 
   constructor(private httpClient: HttpClient) { }
 
   cadastrarUsuario(dadosUsuario: Cadastro, arquivo: Array<File>): Observable<HttpEvent<string>> {
     return this.httpClient.request(
       AppHttpUtil.criarHttpRequest(
-        arquivo, `${this.URL_API}/cadastro/cadastrar-usuario`, dadosUsuario, TipoResposta.TEXT
+        arquivo, `${this.URL_LOCAL_API}/cadastro/cadastrar-usuario`, dadosUsuario, TipoResposta.TEXT
       )
     );
   }
