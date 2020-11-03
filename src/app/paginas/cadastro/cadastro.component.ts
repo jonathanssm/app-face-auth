@@ -63,7 +63,7 @@ export class CadastroComponent implements OnInit {
     const arquivo = this.form.controls.foto.value == null ? [] : [this.form.controls.foto.value];
     this.dadosUsuario = this.carregarDadosUsuario();
     this.modalServico.exibirConfirmacaoGrande('Realmente deseja finalizar o cadastro?', null, () => {
-      let apiCadastro: Observable<HttpEvent<string>> = this.faceAuthService.getTest(this.dadosUsuario, arquivo);
+      let apiCadastro: Observable<HttpEvent<string>> = this.faceAuthService.cadastrarUsuario(this.dadosUsuario, arquivo);
 
       this.spinnerServico.show();
       apiCadastro.subscribe(resp => this.tratarResposta(resp, arquivo));
