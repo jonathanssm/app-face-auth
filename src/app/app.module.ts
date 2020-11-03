@@ -3,12 +3,14 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 // Terceiros
 import { NgxSpinnerModule } from 'ngx-spinner';
 
 // Servicos
 import { ModalServico } from 'src/app/compartilhado/components/modal/modal.servico';
+import { FaceAuthService } from 'src/app/compartilhado/services/face-auth.service';
 
 // Ngx
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -60,13 +62,14 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = undefined;
     ReactiveFormsModule,
     FormsModule,
     NgxSpinnerModule,
+    HttpClientModule,
     BsDropdownModule.forRoot(),
     ModalModule.forRoot(),
     ProgressbarModule.forRoot(),
     NgxMaskModule.forRoot()
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [ModalServico],
+  providers: [ModalServico, FaceAuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
