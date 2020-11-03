@@ -19,7 +19,7 @@ export class FaceAuthService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getTest(dadosUsuario: Cadastro, arquivo: Array<File>): Observable<HttpEvent<string>> {
+  cadastrarUsuario(dadosUsuario: Cadastro, arquivo: Array<File>): Observable<HttpEvent<string>> {
     return this.httpClient.request(
       AppHttpUtil.criarHttpRequest(
         arquivo, `${this.URL_API}/cadastro/cadastrar-usuario`, dadosUsuario, TipoResposta.TEXT
