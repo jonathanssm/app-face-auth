@@ -75,9 +75,13 @@ export class CadastroComponent implements OnInit {
 
     if (evento.type == HttpEventType.Response) {
       if (evento.body != null) {
+        if (evento.body === 'true') {
+          this.modalServico.exibirSucesso('Cadastro realizado com sucesso.');
+          this.router.navigate(['home']);
+        } else {
+          this.modalServico.exibirErro('Ocorreu um erro durante o cadastro.');
+        }
         this.spinnerServico.hide();
-        this.modalServico.exibirSucesso(evento.body);
-        this.router.navigate(['home']);
       }
     }
   }
