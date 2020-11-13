@@ -23,7 +23,7 @@ export class FaceAuthService {
   cadastrarUsuario(dadosUsuario: Cadastro, arquivo: Array<File>): Observable<HttpEvent<string>> {
     return this.httpClient.request(
       AppHttpUtil.criarHttpRequest(
-        arquivo, `${this.URL_LOCAL_API}/cadastro/cadastrar-usuario`, dadosUsuario, TipoResposta.TEXT
+        arquivo, `${this.URL_WEB_API}/cadastro/cadastrar-usuario`, dadosUsuario, TipoResposta.TEXT
       )
     );
   }
