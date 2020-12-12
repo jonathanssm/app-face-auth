@@ -1,1 +1,14 @@
-<webcam></webcam>
+<div id="camera">
+  <div class="row">
+    <div class="frame-video">
+      <webcam [width]="largura" [height]="altura" [trigger]="triggerObservable" imageQuality="0.92"
+        imageType="image/jpeg" (initError)="exibirErro($event)" (imageCapture)="capturarImagem($event)">
+      </webcam>
+    </div>
+  </div>
+
+  <div class="row justify-content-end mt-2">
+    <button class="btn btn-block btn-lg btn-outline-dark" title="Capturar Imagem" type="submit"
+      (click)="triggerSnapshot()">📸</button>
+  </div>
+</div>
