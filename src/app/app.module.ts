@@ -17,6 +17,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { WebcamModule } from 'ngx-webcam';
 
 // Routing
 import { AppRoutingModule } from './app-routing.module';
@@ -35,6 +36,7 @@ import { SpinnerComponent } from './compartilhado/components/spinner/spinner.com
 import { UploadArquivoComponent } from './compartilhado/components/upload/upload-arquivo/upload-arquivo.component';
 import { InputComponent } from './compartilhado/components/input/input.component';
 import { UploadImagemComponent } from './compartilhado/components/upload/upload-imagem/upload-imagem.component';
+import { WebcamComponent } from './compartilhado/components/webcam/webcam.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = undefined;
 
@@ -52,7 +54,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = undefined;
     SpinnerComponent,
     UploadArquivoComponent,
     InputComponent,
-    UploadImagemComponent
+    UploadImagemComponent,
+    WebcamComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -63,10 +66,11 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = undefined;
     FormsModule,
     NgxSpinnerModule,
     HttpClientModule,
+    WebcamModule,
     BsDropdownModule.forRoot(),
     ModalModule.forRoot(),
     ProgressbarModule.forRoot(),
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [ModalServico, FaceAuthService],
