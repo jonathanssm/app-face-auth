@@ -28,4 +28,8 @@ export class FaceAuthService {
     );
   }
 
+  getArtigo(): Observable<string> {
+    return this.httpClient.get(`${this.URL_WEB_API}/artigo/`, { responseType: TipoResposta.TEXT });
+  }
+
 }
