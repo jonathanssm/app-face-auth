@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+// Ngx
+import { WebcamImage } from 'ngx-webcam';
+
 // Utils
 import { AppHttpUtil } from 'src/app/compartilhado/utils/app-http-util';
 
@@ -25,6 +28,12 @@ export class FaceAuthService {
       AppHttpUtil.criarHttpRequest(
         arquivo, `${this.URL_WEB_API}/cadastro/cadastrar-usuario`, dadosUsuario, TipoResposta.TEXT
       )
+    );
+  }
+
+  autenticarUsuario(imagemB64: string): Observable<string> {
+    return this.httpClient.post(
+      `${this.URL_WEB_API}/autenticacao/autenticar-usuario`, { 'imagem': imagemB64 }, { responseType: TipoResposta.TEXT }
     );
   }
 
