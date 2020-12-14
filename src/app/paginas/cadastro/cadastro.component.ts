@@ -41,6 +41,7 @@ export class CadastroComponent implements OnInit {
 
   ngOnInit(): void {
     this.iniciarForm();
+    this.modalServico.exibirInfo('Esta página ainda está em desenvolvimento !');
   }
 
   selecionarImagem(foto: FileList): void {
