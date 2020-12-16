@@ -2,9 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-// Ngx
-import { WebcamImage } from 'ngx-webcam';
-
 // Utils
 import { AppHttpUtil } from 'src/app/compartilhado/utils/app-http-util';
 
